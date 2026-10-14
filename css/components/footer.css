@@ -13,11 +13,10 @@
   .footer-meta p { margin: 0 0 8px; }
   .bleed {
     font: 800 clamp(64px, 19vw, 300px)/0.8 var(--sans); letter-spacing: -0.05em;
-    color: var(--udem-bleu); margin: 56px 0 calc(-0.12em + env(safe-area-inset-bottom) * -1);
+    color: var(--accent); margin: 56px 0 calc(-0.12em + env(safe-area-inset-bottom) * -1);
     display: flex; justify-content: center; white-space: nowrap;
     transition: transform 1200ms var(--ease-out);
   }
   .js .bleed { transform: translateY(20%); }
   .js .bleed.in { transform: translateY(0); }
-  @media (prefers-color-scheme: dark) { .bleed { color: var(--accent); } }
 }

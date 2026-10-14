@@ -1,5 +1,5 @@
 // Point d’entrée : chaque module s’occupe d’une seule responsabilité.
-import { announceNewTabLinks, initMotionToggle } from './modules/a11y.js';
+import { announceNewTabLinks, initMotionToggle, initThemeToggle } from './modules/a11y.js';
 import { initReveal } from './modules/reveal.js';
 import { loadData } from './modules/data.js';
 import { initCounters } from './modules/counters.js';
@@ -12,6 +12,7 @@ import { initStatLinks } from './modules/stat-links.js';
 
 announceNewTabLinks();
 initMotionToggle();
+initThemeToggle();
 initReveal();
 initTabs();
 initQuotes();

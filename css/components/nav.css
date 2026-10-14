@@ -29,15 +29,14 @@
   .brand-logo svg { display: block; height: 40px; width: auto; }
   .brand-sep { width: 1.5px; height: 28px; background: currentColor; opacity: 0.45; }
   .brand-name { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
-  .nav.scrolled .brand-logo { color: var(--udem-bleu); }
-  @media (prefers-color-scheme: dark) { .nav.scrolled .brand-logo { color: #fff; } }
+  .nav.scrolled .brand-logo { color: var(--logo); }
   @media (max-width: 420px) {
     .brand { gap: 10px; }
     .brand-logo svg { height: 34px; }
     .brand-sep { height: 24px; }
     .brand-name { font-size: 14px; }
   }
-  .nav-links { display: flex; gap: 4px; }
+  .nav-links { display: flex; gap: 4px; margin-left: auto; }
   .nav a.link {
     font-size: 14px; font-weight: 500; text-decoration: none; opacity: 0.85;
     padding: 7px 12px; border-radius: 999px;
@@ -52,4 +51,17 @@
     .nav a.link.active:hover { background: color-mix(in srgb, currentColor 20%, transparent); }
   }
   @media (max-width: 720px) { .nav-links { display: none; } }
+  /* Bouton clair / sombre : caché sans JavaScript (le thème du système s’applique alors) */
+  html:not(.js) .theme-toggle { display: none; }
+  .theme-toggle {
+    flex: none; width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center; cursor: pointer; padding: 0;
+    color: inherit; background: transparent; border: 1.5px solid color-mix(in srgb, currentColor 45%, transparent);
+    transition: background-color 150ms ease, transform 160ms var(--ease-out);
+  }
+  .theme-toggle:active { transform: scale(0.94); }
+  @media (hover: hover) and (pointer: fine) { .theme-toggle:hover { background: color-mix(in srgb, currentColor 12%, transparent); } }
+  /* L’icône montre le thème vers lequel on bascule */
+  .theme-toggle .i-sun, .theme-toggle[aria-pressed="true"] .i-moon { display: none; }
+  .theme-toggle[aria-pressed="true"] .i-sun { display: block; }
 }

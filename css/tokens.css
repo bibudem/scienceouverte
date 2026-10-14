@@ -14,21 +14,31 @@
 
     /* Un accent secondaire par volet, toujours accompagné du bleu principal */
     --volet-1: var(--udem-vert);      --volet-1-ink: var(--udem-bleu-fonce);
-    --volet-2: var(--udem-sarcelle);  --volet-2-ink: #ffffff;
     --volet-3: var(--udem-orange);    --volet-3-ink: var(--udem-bleu-fonce);
     --volet-4: var(--udem-jaune);     --volet-4-ink: var(--udem-bleu-fonce);
 
-    --bg: #ffffff;
-    --bg-alt: var(--udem-bleu-10);
-    --surface: #ffffff;
-    --surface-2: var(--udem-bleu-10);
-    --ink: var(--udem-bleu-fonce);
-    --ink-2: #39406a;
-    --ink-3: #5f6688;
-    --line: rgba(11, 17, 58, 0.12);
-    --accent: var(--udem-bleu);
-    --accent-soft: rgba(0, 87, 172, 0.1);
+    /* Thème : clair ou sombre selon color-scheme (système, ou bouton de la barre de navigation).
+       light-dark(clair, sombre) ; le sarcelle de la marque disparaît sur le bleu foncé : même teinte, éclaircie. */
+    color-scheme: light dark;
+    --volet-2: light-dark(var(--udem-sarcelle), color-mix(in srgb, var(--udem-sarcelle) 45%, #ffffff));
+    --volet-2-ink: light-dark(#ffffff, var(--udem-bleu-fonce));
+    --bg: light-dark(#ffffff, var(--udem-bleu-fonce));
+    --bg-alt: light-dark(var(--udem-bleu-10), #0f1748);
+    --surface: light-dark(#ffffff, #141d55);
+    --surface-2: light-dark(var(--udem-bleu-10), #1a2462);
+    --ink: light-dark(var(--udem-bleu-fonce), #ffffff);
+    --ink-2: light-dark(#39406a, #c9d3ee);
+    --ink-3: light-dark(#5f6688, #8f9bc4);
+    --line: light-dark(rgba(11, 17, 58, 0.12), rgba(255, 255, 255, 0.12));
+    --accent: light-dark(var(--udem-bleu), #7fb6ec);
+    --accent-soft: light-dark(rgba(0, 87, 172, 0.1), rgba(127, 182, 236, 0.14));
     --on-blue: #ffffff;
+    /* Couleurs propres à un composant, qui changent avec le thème */
+    --logo: light-dark(var(--udem-bleu), #ffffff);
+    /* Haut de page : bleu principal en clair, bleu foncé en sombre, pour que la bascule se voie dès l’arrivée */
+    --hero-bg: light-dark(var(--udem-bleu), var(--udem-bleu-fonce));
+    --cta-bg: light-dark(var(--udem-bleu-fonce), var(--udem-bleu));
+    --cta-kicker: light-dark(var(--udem-vert), var(--udem-jaune));
 
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -42,21 +52,7 @@
     /* Grille graphique : côté le plus court divisé par 8 */
     --cell: calc(min(100vw, 100svh) / 8);
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      /* Le sarcelle de la marque disparaît sur le bleu foncé : même teinte, éclaircie */
-      --volet-2: color-mix(in srgb, var(--udem-sarcelle) 45%, #ffffff);
-      --volet-2-ink: var(--udem-bleu-fonce);
-      --bg: var(--udem-bleu-fonce);
-      --bg-alt: #0f1748;
-      --surface: #141d55;
-      --surface-2: #1a2462;
-      --ink: #ffffff;
-      --ink-2: #c9d3ee;
-      --ink-3: #8f9bc4;
-      --line: rgba(255, 255, 255, 0.12);
-      --accent: #7fb6ec;
-      --accent-soft: rgba(127, 182, 236, 0.14);
-    }
-  }
+  /* Choix explicite (bouton) : prend le pas sur la préférence du système */
+  :root[data-theme="light"] { color-scheme: light; }
+  :root[data-theme="dark"] { color-scheme: dark; }
 }
