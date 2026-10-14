@@ -1,0 +1,62 @@
+/* Palette — marque.umontreal.ca (2.3.4 Couleurs)
+   Dominantes : bleu principal #0057AC, bleu foncé #0B113A, bleu principal 10 % #E5F1FA.
+   Secondaires (accents, toujours en duo avec le bleu principal, avec parcimonie). */
+@layer tokens {
+  :root {
+    --udem-bleu: #0057ac;
+    --udem-bleu-fonce: #0b113a;
+    --udem-bleu-10: #e5f1fa;
+    --udem-sarcelle: #00474b;
+    --udem-vert: #55b98b;
+    --udem-rose: #fde2de;
+    --udem-orange: #ff5c39;
+    --udem-jaune: #ffcb3d;
+
+    /* Un accent secondaire par volet, toujours accompagné du bleu principal */
+    --volet-1: var(--udem-vert);      --volet-1-ink: var(--udem-bleu-fonce);
+    --volet-2: var(--udem-sarcelle);  --volet-2-ink: #ffffff;
+    --volet-3: var(--udem-orange);    --volet-3-ink: var(--udem-bleu-fonce);
+    --volet-4: var(--udem-jaune);     --volet-4-ink: var(--udem-bleu-fonce);
+
+    --bg: #ffffff;
+    --bg-alt: var(--udem-bleu-10);
+    --surface: #ffffff;
+    --surface-2: var(--udem-bleu-10);
+    --ink: var(--udem-bleu-fonce);
+    --ink-2: #39406a;
+    --ink-3: #5f6688;
+    --line: rgba(11, 17, 58, 0.12);
+    --accent: var(--udem-bleu);
+    --accent-soft: rgba(0, 87, 172, 0.1);
+    --on-blue: #ffffff;
+
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+    --sans: "Figtree", Arial, sans-serif;
+    --serif: "Lora", "Times New Roman", serif;
+
+    --gutter: clamp(16px, 5vw, 48px);
+    --max: 1120px;
+    /* Grille graphique : côté le plus court divisé par 8 */
+    --cell: calc(min(100vw, 100svh) / 8);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Le sarcelle de la marque disparaît sur le bleu foncé : même teinte, éclaircie */
+      --volet-2: color-mix(in srgb, var(--udem-sarcelle) 45%, #ffffff);
+      --volet-2-ink: var(--udem-bleu-fonce);
+      --bg: var(--udem-bleu-fonce);
+      --bg-alt: #0f1748;
+      --surface: #141d55;
+      --surface-2: #1a2462;
+      --ink: #ffffff;
+      --ink-2: #c9d3ee;
+      --ink-3: #8f9bc4;
+      --line: rgba(255, 255, 255, 0.12);
+      --accent: #7fb6ec;
+      --accent-soft: rgba(127, 182, 236, 0.14);
+    }
+  }
+}

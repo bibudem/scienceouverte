@@ -1,0 +1,130 @@
+/* ---------- Photographies ----------
+   Traitement selon la marque (2.3.6) : cadrages serrés ou angles inhabituels,
+   peu de couleurs, tons dominants alignés sur la palette. */
+@layer components {
+  picture, picture img { display: block; }
+  figure { margin: 0; }
+
+  /* Photos de fond (haut de page, En chiffres, Quatre volets) :
+     même traitement sur ordinateur et sur mobile ; seules les dimensions changent. */
+
+  /* Haut de page : duotone bleu UdeM, fondu dans le fond du côté gauche.
+     Le titre blanc reste lisible au-dessus (blanc sur bleu ≥ 6:1). */
+  .hero-photo {
+    position: absolute; z-index: -1; top: 0; right: 0; bottom: 0; width: 46vw;
+    background: var(--udem-bleu);
+    -webkit-mask: linear-gradient(90deg, transparent 0%, #000 42%);
+            mask: linear-gradient(90deg, transparent 0%, #000 42%);
+  }
+  .hero-photo picture, .hero-photo img { width: 100%; height: 100%; }
+  .hero-photo img {
+    object-fit: cover; object-position: 50% 40%;
+    filter: grayscale(1) contrast(1.08) brightness(1.05);
+    mix-blend-mode: multiply; opacity: 0.9;
+  }
+  .js .hero-photo img {
+    animation: heroPhotoClip 1400ms var(--ease-in-out) 150ms both, heroPhotoScale 2200ms var(--ease-out) 150ms both;
+  }
+  @keyframes heroPhotoClip { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0); } }
+  @keyframes heroPhotoScale { from { scale: 1.06; } to { scale: 1; } }
+  @media (max-width: 899px) {
+    .hero-photo { width: 78vw; }
+  }
+
+  /* En chiffres : photo en noir et blanc ancrée en haut à gauche, fondue vers la droite
+     et vers les chiffres ; le titre se place à côté (ordinateur) ou dessous (mobile). */
+  #chiffres { position: relative; isolation: isolate; overflow: hidden; }
+  .stats-head { display: grid; gap: 28px; }
+  .stats-photo {
+    /* Jusqu’à 260 px sous la colonne du titre, quelle que soit la largeur de l’écran */
+    position: absolute; z-index: -1; top: 0; left: 0; width: calc(50vw + 260px); height: min(80vh, 760px);
+    overflow: hidden;
+    /* Deux fondus sur deux éléments imbriqués, plutôt qu’un masque composé :
+       la composition de masques n’est pas rendue de façon fiable sur grand écran. */
+    /* Fondu long et adouci (courbe en S) : il commence tôt et s’éteint sans bord visible */
+    -webkit-mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,.06) 12%, rgba(0,0,0,.22) 26%, rgba(0,0,0,.5) 42%, rgba(0,0,0,.8) 58%, #000 75%);
+            mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,.06) 12%, rgba(0,0,0,.22) 26%, rgba(0,0,0,.5) 42%, rgba(0,0,0,.8) 58%, #000 75%);
+  }
+  .stats-photo picture {
+    width: 100%; height: 100%;
+    -webkit-mask-image: linear-gradient(180deg, #000 30%, rgba(0,0,0,.8) 48%, rgba(0,0,0,.5) 64%, rgba(0,0,0,.2) 80%, rgba(0,0,0,.05) 92%, transparent 100%);
+            mask-image: linear-gradient(180deg, #000 30%, rgba(0,0,0,.8) 48%, rgba(0,0,0,.5) 64%, rgba(0,0,0,.2) 80%, rgba(0,0,0,.05) 92%, transparent 100%);
+  }
+  .stats-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%;
+    filter: grayscale(1) contrast(1.08) brightness(1.05);
+    opacity: 0.9; /* noir et blanc, posé directement sur le fond de la section */
+  }
+  @media (min-width: 900px) {
+    .stats-head { grid-template-columns: 1fr 1fr; }
+    .stats-head > div { grid-column: 2; }
+  }
+  @media (max-width: 899px) {
+    .stats-photo { width: 88vw; height: 340px; }
+    .stats-head { padding-top: 190px; }
+  }
+  /* Dévoilement depuis la gauche, en miroir du haut de page */
+  .js .stats-photo.photo-reveal picture,
+  .js .stats-photo.photo-reveal.in picture { clip-path: none; }
+  .js .stats-photo.photo-reveal img { clip-path: inset(0 100% 0 0); scale: 1.06; transform-origin: left center; }
+  .js .stats-photo.photo-reveal.in img {
+    clip-path: inset(0); scale: 1;
+    transition: clip-path 1400ms var(--ease-in-out) 100ms, scale 2200ms var(--ease-out) 100ms;
+  }
+
+  /* Quatre volets : photo en noir et blanc sur toute la largeur du bas de la section,
+     fondue vers le haut et dévoilée de bas en haut. */
+  #volets { position: relative; isolation: isolate; overflow: hidden; padding-bottom: clamp(110px, 15vh, 170px); }
+  .volets-photo {
+    position: absolute; z-index: -1; left: 0; right: 0; bottom: 0; width: 100%; height: min(46vh, 420px);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(0deg, #000 40%, transparent 100%);
+            mask-image: linear-gradient(0deg, #000 40%, transparent 100%);
+  }
+  .volets-photo picture { width: 100%; height: 100%; }
+  .volets-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%;
+    filter: grayscale(1) contrast(1.08) brightness(1.05);
+    opacity: 0.9;
+  }
+  @media (max-width: 899px) {
+    .volets-photo { height: 300px; }
+    .volets-photo img { object-position: 30% 55%; }
+  }
+  .js .volets-photo.photo-reveal picture,
+  .js .volets-photo.photo-reveal.in picture { clip-path: none; }
+  .js .volets-photo.photo-reveal img { clip-path: inset(100% 0 0 0); scale: 1.06; transform-origin: center bottom; }
+  .js .volets-photo.photo-reveal.in img {
+    clip-path: inset(0); scale: 1;
+    transition: clip-path 1400ms var(--ease-in-out) 100ms, scale 2200ms var(--ease-out) 100ms;
+  }
+
+  /* Passer à l’action : photo à droite, sous le carré orange et le logo */
+  .cta-photo { position: relative; z-index: -2; margin: calc(-1 * var(--cta-pad)) calc(-1 * var(--cta-pad)) 32px; aspect-ratio: 16 / 10; overflow: hidden; }
+  .cta-photo picture, .cta-photo img { width: 100%; height: 100%; }
+  .cta-photo img { object-fit: cover; object-position: 35% 30%; }
+  @media (min-width: 900px) {
+    .cta-photo { position: absolute; top: 0; right: 0; bottom: 0; width: 38%; margin: 0; aspect-ratio: auto; }
+    .cta > :not(.cta-photo):not(.cta-mark) { max-width: 56%; }
+  }
+
+  /* Panneaux de détail : photo en tête du contenu */
+  .card-photo { aspect-ratio: 16 / 9; overflow: hidden; border-radius: 4px; margin: 0 0 20px; background: var(--surface-2); }
+  .card-photo picture, .card-photo img { width: 100%; height: 100%; }
+  .card-photo img { object-fit: cover; }
+
+  /* Dévoilement au défilement : la photo se découvre de haut en bas.
+     Le masque est posé sur l’image, pas sur le cadre observé : un élément entièrement
+     masqué n’est jamais signalé comme visible par IntersectionObserver. */
+  .js .photo-reveal picture { clip-path: inset(0 0 100% 0); }
+  .js .photo-reveal.in picture { clip-path: inset(0); transition: clip-path 1100ms var(--ease-in-out); }
+  .js .photo-reveal img { scale: 1.08; }
+  .js .photo-reveal.in img { scale: 1; transition: scale 1600ms var(--ease-out); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .hero-photo img, .js .photo-reveal picture, .js .photo-reveal img { clip-path: none !important; scale: 1 !important; }
+    .js .hero-photo img { animation: none; }
+    .js .photo-reveal { opacity: 0; transition: opacity 300ms ease; }
+    .js .photo-reveal.in { opacity: 1; }
+  }
+}

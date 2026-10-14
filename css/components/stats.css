@@ -1,0 +1,33 @@
+/* ---------- Chiffres ---------- */
+@layer components {
+  .stats { display: grid; gap: 12px; margin-top: 56px; grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 820px) { .stats { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+  .stat {
+    background: var(--surface); padding: clamp(20px, 3.5vw, 32px); min-width: 0;
+    border-top: 4px solid var(--volet-1);
+    position: relative;
+  }
+  /* Chiffre relié à son thème : toute la carte est cliquable (bouton étiré) */
+  .stat-link {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 0;
+    border: 0; background: none; cursor: pointer; font: 600 13.5px/1.2 var(--sans); color: var(--accent);
+    user-select: none; -webkit-user-select: none; touch-action: manipulation;
+  }
+  .stat-link::after { content: ""; position: absolute; inset: 0; }
+  .stat-link svg { transition: transform 200ms var(--ease-out); }
+  .stat:has(.stat-link) { transition: transform 200ms var(--ease-out), box-shadow 250ms ease; }
+  .stat:has(.stat-link):active { transform: scale(0.98); }
+  @media (hover: hover) and (pointer: fine) {
+    .stat:has(.stat-link):hover { transform: translateY(-3px); box-shadow: 0 14px 30px -20px rgba(11, 17, 58, .45); }
+    .stat:has(.stat-link):hover .stat-link svg { transform: translateX(3px); }
+  }
+  .stat .num {
+    font: 700 clamp(38px, 6.6vw, 68px)/1 var(--sans); letter-spacing: -0.035em;
+    font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--accent);
+  }
+  .stat .num small { font-size: 0.55em; }
+  .stat .label { margin-top: 12px; font-size: 15px; color: var(--ink-2); line-height: 1.45; }
+  .stat.featured { grid-column: 1 / -1; }
+  .stat.featured .num { font-size: clamp(48px, 11vw, 124px); }
+  .stat.featured .label { font-size: 16px; }
+}

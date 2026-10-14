@@ -1,0 +1,29 @@
+{
+  "_lisez-moi": "Chiffres affichés sur la page. Modifiez une valeur ici : elle est mise à jour partout où elle apparaît. Nombres sans espaces (6197193) ; Une valeur en texte (\"plus de 3 000\") est affichée telle quelle.",
+  "mise_a_jour": {
+    "date": "2025-11",
+    "libelle": "novembre 2025"
+  },
+  "chiffres": {
+    "papyrus_telechargements_2024": 6197193,
+    "papyrus_documents": 41607,
+    "papyrus_doi_actifs": 32259,
+    "papyrus_doi_attribues": 32359,
+    "papyrus_articles_libre_acces_2025": 224,
+    "papyrus_theses_memoires": 32356,
+    "borealis_jeux_de_donnees": 369,
+    "budget_libre_acces_pourcentage": 2.5,
+    "revues_ojs": 13,
+    "projets_ouverts": 49,
+    "rel_fabrique": 3,
+    "rel_pressbooks": 5,
+    "studios_video_audio": 5,
+    "laboratoires_visualisation": 1,
+    "ateliers_fabrication": 3,
+    "imprimantes_3d": 5,
+    "catalogue_ressources_libre_acces": 6400000,
+    "impact_accompagnements": 24,
+    "pages_adaptees_par_semestre": "10 000 à 15 000",
+    "usagers_reguliers_accessibilite": "plus de 3 000"
+  }
+}
