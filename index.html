@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0057ac" />
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0057ac" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b113a" />
 <meta name="color-scheme" content="light dark" />
 <title>Science ouverte | Bibliothèques de l’Université de Montréal</title>
 <link rel="icon" href="assets/favicon-32x32.png" type="image/png" sizes="32x32" />
@@ -86,7 +86,11 @@
   }
 }
 </script>
-<script>document.documentElement.classList.add('js');</script>
+<script>
+  // Avant le premier rendu : classe .js et thème choisi au bouton (sinon, celui du système), sans flash.
+  document.documentElement.classList.add('js');
+  try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
 <!-- Photo du haut de page demandée en premier : c’est le plus gros élément affiché (LCP) -->
 <link rel="preload" as="image" type="image/webp" imagesrcset="assets/photos/hero-salle-etude-640.webp 640w, assets/photos/hero-salle-etude-960.webp 960w" imagesizes="(min-width: 900px) 46vw, 78vw" fetchpriority="high" />
 <!-- Les deux polices du grand titre, demandées tôt pour éviter qu’il soit redessiné tard -->
@@ -130,6 +134,7 @@
       <a class="link" href="#chronologie">Chronologie</a>
       <a class="link" href="#contact">Contact</a>
     </nav>
+    <button class="theme-toggle" type="button" aria-pressed="false"><span class="sr-only">Thème sombre</span><svg class="i-moon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></g></svg></button>
   </div>
 </header>
 

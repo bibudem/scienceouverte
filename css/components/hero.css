@@ -1,11 +1,11 @@
-/* ---------- Héros : fond bleu principal ---------- */
+/* ---------- Héros : fond bleu principal (bleu foncé en thème sombre) ---------- */
 @layer components {
   .hero {
     min-height: 100svh;
     display: flex; flex-direction: column; justify-content: center;
     padding: calc(104px + env(safe-area-inset-top)) 0 72px;
     position: relative; isolation: isolate; overflow: hidden;
-    background: var(--udem-bleu); color: var(--on-blue);
+    background: var(--hero-bg); color: var(--on-blue);
   }
   /* Texture typographique : le vocabulaire de la science ouverte */
   .hero-texture {

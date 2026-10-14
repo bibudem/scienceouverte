@@ -1,12 +1,11 @@
 /* ---------- CTA : fond bleu foncé ---------- */
 @layer components {
   .cta {
-    background: var(--udem-bleu-fonce); color: #fff;
+    background: var(--cta-bg); color: #fff;
     --cta-pad: clamp(36px, 7vw, 80px);
     padding: var(--cta-pad);
     position: relative; overflow: hidden; isolation: isolate;
   }
-  @media (prefers-color-scheme: dark) { .cta { background: var(--udem-bleu); } }
   .cta { --sq: clamp(56px, 8vw, 104px); }
   /* Carré orange derrière le logo des bibliothèques */
   .cta::before {
@@ -18,8 +17,7 @@
     width: calc(var(--sq) * 2); height: calc(var(--sq) * 2); display: block;
   }
   @media (max-width: 640px) { .cta { padding-bottom: calc(var(--sq) * 3 + 28px); } }
-  .cta .kicker { color: var(--udem-vert); }
-  @media (prefers-color-scheme: dark) { .cta .kicker { color: var(--udem-jaune); } }
+  .cta .kicker { color: var(--cta-kicker); }
   .cta h2 { color: #fff; max-width: 16ch; }
   .cta h2 em { color: var(--udem-jaune); }
   .cta p { color: rgba(255,255,255,.8); max-width: 520px; margin: 20px 0 0; }
