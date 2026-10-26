@@ -1,8 +1,9 @@
 {
   "_lisez-moi": "Chiffres affichés sur la page. Modifiez une valeur ici : elle est mise à jour partout où elle apparaît. Nombres sans espaces (6197193) ; Une valeur en texte (\"plus de 3 000\") est affichée telle quelle.",
+  "edition": "2026",
   "mise_a_jour": {
-    "date": "2025-11",
-    "libelle": "novembre 2025"
+    "date": "2026-11",
+    "libelle": "novembre 2026"
   },
   "chiffres": {
     "papyrus_telechargements": 6197193,

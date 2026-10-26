@@ -33,6 +33,11 @@ export async function loadData() {
       continue;
     }
 
+    if (key === 'edition') {
+      if (data.edition) el.textContent = data.edition;
+      continue;
+    }
+
     const value = data.chiffres?.[key];
     if (value === undefined) {
       console.warn(`Chiffres : clé « ${key} » absente de data/chiffres.json.`);

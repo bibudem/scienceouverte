@@ -21,12 +21,15 @@
   @keyframes texture { to { transform: translateX(-50%); } }
 
   .eyebrow {
-    display: inline-flex; align-items: center; gap: 10px; width: fit-content;
+    display: inline-flex; align-items: center; gap: 10px; width: fit-content; margin: 0 0 28px;
     font-size: 14px; font-weight: 500;
     padding: 7px 14px 7px 10px; border-radius: 999px;
     background: rgba(255,255,255,.12); color: var(--on-blue);
   }
   .eyebrow .dot { width: 8px; height: 8px; border-radius: 2px; background: var(--udem-jaune); }
+  /* Dans le h1 (nom de la page pour les moteurs de recherche) : la pastille ne reprend pas
+     la typographie du grand titre, et passe en bloc pour ne pas hériter de sa hauteur de ligne. */
+  h1 .eyebrow { display: flex; font-family: var(--sans); line-height: 1.4; letter-spacing: normal; }
 
   /* Premier titre : toujours en Figtree, jamais en majuscules */
   h1 {
