@@ -31,6 +31,7 @@ export function createSheet() {
   let index = 0;
   let running = [];
   let hiddenTile = null;
+  let openedByKeyboard = false;
 
   // --- Contenu ---------------------------------------------------------------
   const fill = (entry) => {
@@ -61,7 +62,8 @@ export function createSheet() {
   const hideTile = (tile) => { showTile(); hiddenTile = tile; tile.style.opacity = '0'; };
 
   // --- Ouverture -----------------------------------------------------------------
-  function open({ entry, group: entries }) {
+  function open({ entry, group: entries, keyboard = false }) {
+    openedByKeyboard = keyboard;
     group = entries;
     index = group.indexOf(entry);
     fill(entry);
@@ -146,6 +148,10 @@ export function createSheet() {
       sheet.close();
       sheet.classList.remove('closing', 'open', 'morph');
       showTile();
+      // Safari ne donne pas le focus aux boutons cliqués : le dialog le rendrait au volet (tabindex=0),
+      // qui s’afficherait encadré. Au clavier, on revient sur la tuile du thème affiché ; à la souris, on le retire.
+      if (openedByKeyboard) target?.focus({ preventScroll: true });
+      else document.activeElement?.blur();
       lockScroll(false);
       running = [];
     };

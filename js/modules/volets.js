@@ -44,7 +44,7 @@ function createTile(card, index) {
 
 /**
  * Construit les tuiles de chaque volet.
- * onOpen({ entry, group }) est appelé au clic ; group contient les thèmes du volet, dans l’ordre.
+ * onOpen({ entry, group, keyboard }) est appelé au clic ; group contient les thèmes du volet, dans l’ordre.
  */
 export function buildTiles({ onOpen }) {
   for (const panel of $$('.panel')) {
@@ -57,7 +57,8 @@ export function buildTiles({ onOpen }) {
       $$('.card', cards).forEach((card, i) => {
         const tile = createTile(card, i);
         const entry = { tile, card, volet, panel };
-        tile.addEventListener('click', () => onOpen({ entry, group }));
+        // detail vaut 0 quand le clic vient du clavier (Entrée, Espace).
+        tile.addEventListener('click', (event) => onOpen({ entry, group, keyboard: event.detail === 0 }));
         group.push(entry);
         bento.append(tile);
       });
