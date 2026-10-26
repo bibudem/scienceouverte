@@ -70,13 +70,17 @@
     .sheet-handle { display: block; width: 40px; height: 5px; border-radius: 3px; background: var(--line); margin: 0 auto 14px; }
     .sheet-top { margin-bottom: 14px; }
   }
-  /* Ordinateur : panneau flottant, haut comme son contenu (plus de grand vide sous un court texte) */
+  /* Ordinateur : panneau flottant centré, haut comme son contenu (plus de grand vide sous un court texte).
+     Centré par inset + margin auto et non par transform : transform sert aux animations d’entrée et de sortie. */
   @media (min-width: 721px) {
     .sheet-panel {
-      top: 16px; right: 16px; bottom: auto; max-height: calc(100dvh - 32px);
+      inset: 0; margin: auto; width: min(640px, 100vw - 48px);
+      height: -webkit-fit-content; height: fit-content; max-height: calc(100dvh - 48px);
       border-radius: 16px; box-shadow: 0 30px 80px -30px rgba(11, 17, 58, .55);
-      transform: translateX(calc(100% + 32px));
+      opacity: 0; transform: translateY(16px) scale(0.97);
+      transition: transform 420ms var(--ease-drawer), opacity 260ms ease;
     }
+    .sheet.open .sheet-panel { opacity: 1; }
     .sheet-body { flex: 0 1 auto; }
     .sheet-grab { padding-top: 20px; }
   }
