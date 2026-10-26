@@ -5,7 +5,7 @@
   picture, picture img { display: block; }
   figure { margin: 0; }
 
-  /* Photos de fond (haut de page, Quatre volets) :
+  /* Photos de fond (haut de page, Quatre piliers) :
      même traitement sur ordinateur et sur mobile ; seules les dimensions changent. */
 
   /* Haut de page : duotone bleu UdeM, fondu dans le fond du côté gauche.
@@ -31,9 +31,9 @@
     .hero-photo { width: 78vw; }
   }
 
-  /* Quatre volets : photo en noir et blanc ancrée en haut à gauche, fondue vers la droite
+  /* Quatre piliers : photo en noir et blanc ancrée en haut à gauche, fondue vers la droite
      et vers le bas ; le titre se place à côté (ordinateur) ou dessous (mobile). */
-  #volets { position: relative; isolation: isolate; overflow: hidden; }
+  #piliers { position: relative; isolation: isolate; overflow: hidden; }
   .photo-head { display: grid; gap: 28px; }
   .photo-head h2 em { white-space: nowrap; } /* « chaque étape. » ne se coupe pas */
   /* Texte posé sur la photo (WCAG 1.4.3) : le grand titre garde un halo de la couleur du fond ;

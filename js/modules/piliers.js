@@ -1,4 +1,4 @@
-// Volets : chaque carte de thème devient une tuile compacte.
+// Piliers : chaque carte de thème devient une tuile compacte.
 // Les cartes complètes restent dans le HTML (amélioration progressive) : sans JavaScript, elles s’affichent telles quelles.
 import { $$ } from '../lib/dom.js';
 
@@ -43,12 +43,12 @@ function createTile(card, index) {
 }
 
 /**
- * Construit les tuiles de chaque volet.
- * onOpen({ entry, group, keyboard }) est appelé au clic ; group contient les thèmes du volet, dans l’ordre.
+ * Construit les tuiles de chaque pilier.
+ * onOpen({ entry, group, keyboard }) est appelé au clic ; group contient les thèmes du pilier, dans l’ordre.
  */
 export function buildTiles({ onOpen }) {
   for (const panel of $$('.panel')) {
-    const volet = panel.querySelector('h3').textContent;
+    const pilier = panel.querySelector('h3').textContent;
     const group = [];
 
     for (const cards of $$('.cards', panel)) {
@@ -56,7 +56,7 @@ export function buildTiles({ onOpen }) {
       bento.className = 'bento';
       $$('.card', cards).forEach((card, i) => {
         const tile = createTile(card, i);
-        const entry = { tile, card, volet, panel };
+        const entry = { tile, card, pilier, panel };
         // detail vaut 0 quand le clic vient du clavier (Entrée, Espace).
         tile.addEventListener('click', (event) => onOpen({ entry, group, keyboard: event.detail === 0 }));
         group.push(entry);

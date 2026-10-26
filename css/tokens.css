@@ -12,16 +12,16 @@
     --udem-orange: #ff5c39;
     --udem-jaune: #ffcb3d;
 
-    /* Un accent secondaire par volet, toujours accompagné du bleu principal */
-    --volet-1: var(--udem-vert);      --volet-1-ink: var(--udem-bleu-fonce);
-    --volet-3: var(--udem-orange);    --volet-3-ink: var(--udem-bleu-fonce);
-    --volet-4: var(--udem-jaune);     --volet-4-ink: var(--udem-bleu-fonce);
+    /* Un accent secondaire par pilier, toujours accompagné du bleu principal */
+    --pilier-1: var(--udem-vert);      --pilier-1-ink: var(--udem-bleu-fonce);
+    --pilier-3: var(--udem-orange);    --pilier-3-ink: var(--udem-bleu-fonce);
+    --pilier-4: var(--udem-jaune);     --pilier-4-ink: var(--udem-bleu-fonce);
 
     /* Thème : clair ou sombre selon color-scheme (système, ou bouton de la barre de navigation).
        light-dark(clair, sombre) ; le sarcelle de la marque disparaît sur le bleu foncé : même teinte, éclaircie. */
     color-scheme: light dark;
-    --volet-2: light-dark(var(--udem-sarcelle), color-mix(in srgb, var(--udem-sarcelle) 45%, #ffffff));
-    --volet-2-ink: light-dark(#ffffff, var(--udem-bleu-fonce));
+    --pilier-2: light-dark(var(--udem-sarcelle), color-mix(in srgb, var(--udem-sarcelle) 45%, #ffffff));
+    --pilier-2-ink: light-dark(#ffffff, var(--udem-bleu-fonce));
     --bg: light-dark(#ffffff, var(--udem-bleu-fonce));
     --bg-alt: light-dark(var(--udem-bleu-10), #0f1748);
     --surface: light-dark(#ffffff, #141d55);

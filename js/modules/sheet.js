@@ -35,11 +35,11 @@ export function createSheet() {
 
   // --- Contenu ---------------------------------------------------------------
   const fill = (entry) => {
-    // Le panneau vit hors des volets : il reprend explicitement les couleurs du volet ouvert.
+    // Le panneau vit hors des piliers : il reprend explicitement les couleurs du pilier ouvert.
     const style = getComputedStyle(entry.panel);
-    sheet.style.setProperty('--volet', style.getPropertyValue('--volet'));
-    sheet.style.setProperty('--volet-ink', style.getPropertyValue('--volet-ink'));
-    kicker.textContent = entry.volet;
+    sheet.style.setProperty('--pilier', style.getPropertyValue('--pilier'));
+    sheet.style.setProperty('--pilier-ink', style.getPropertyValue('--pilier-ink'));
+    kicker.textContent = entry.pilier;
     icon.innerHTML = entry.card.querySelector('.icon').innerHTML;
     title.textContent = entry.card.querySelector('h4').textContent;
     body.replaceChildren(entry.card.cloneNode(true));
@@ -148,7 +148,7 @@ export function createSheet() {
       sheet.close();
       sheet.classList.remove('closing', 'open', 'morph');
       showTile();
-      // Safari ne donne pas le focus aux boutons cliqués : le dialog le rendrait au volet (tabindex=0),
+      // Safari ne donne pas le focus aux boutons cliqués : le dialog le rendrait au pilier (tabindex=0),
       // qui s’afficherait encadré. Au clavier, on revient sur la tuile du thème affiché ; à la souris, on le retire.
       if (openedByKeyboard) target?.focus({ preventScroll: true });
       else document.activeElement?.blur();

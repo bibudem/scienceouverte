@@ -4,7 +4,7 @@ import { initReveal } from './modules/reveal.js';
 import { loadData } from './modules/data.js';
 import { initTabs } from './modules/tabs.js';
 import { initScrollEffects } from './modules/scroll.js';
-import { buildTiles } from './modules/volets.js';
+import { buildTiles } from './modules/piliers.js';
 import { initQuotes } from './modules/quotes.js';
 import { createSheet } from './modules/sheet.js';
 import { initManifeste } from './modules/manifeste.js';

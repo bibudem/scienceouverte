@@ -33,7 +33,7 @@ Les chiffres écrits dans `index.html` servent de repli si JavaScript est désac
 
 ## Principes
 
-- **Amélioration progressive.** Le contenu complet est dans le HTML. Sans JavaScript, tout reste lisible : les quatre volets s’affichent à la suite, les chiffres sont écrits en clair, les animations sont désactivées. Avec JavaScript, les cartes deviennent des tuiles qui s’ouvrent dans un panneau.
+- **Amélioration progressive.** Le contenu complet est dans le HTML. Sans JavaScript, tout reste lisible : les quatre piliers s’affichent à la suite, les chiffres sont écrits en clair, les animations sont désactivées. Avec JavaScript, les cartes deviennent des tuiles qui s’ouvrent dans un panneau.
 - **Cascade explicite.** Les couches `tokens → base → a11y → components → motion` fixent la priorité des styles, peu importe la spécificité des sélecteurs.
 - **Mouvement responsable.** Animations limitées à `transform`, `opacity` et `clip-path` ; ressorts physiques pour les ouvertures ; fondus seulement si l’appareil demande moins de mouvement.
 - **Accessibilité WCAG 2.2 AA.** Vérifiée avec axe-core, au clavier et par calcul des contrastes.

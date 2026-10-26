@@ -1,4 +1,4 @@
-// Onglets des quatre volets (motif ARIA « tabs » avec tabulation itinérante).
+// Onglets des quatre piliers (motif ARIA « tabs » avec tabulation itinérante).
 import { $, $$ } from '../lib/dom.js';
 import { prefersReducedMotion } from '../lib/motion.js';
 

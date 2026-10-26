@@ -1,4 +1,4 @@
-/* ---------- Volets ---------- */
+/* ---------- Piliers ---------- */
 @layer components {
   .tabs {
     position: relative; display: flex; gap: 4px; margin-top: 48px;
@@ -15,7 +15,7 @@
     background: var(--udem-bleu);
     transition: transform 350ms var(--ease-out), width 350ms var(--ease-out), height 350ms var(--ease-out);
   }
-  /* Mobile : les quatre volets visibles d’un coup, en grille 2 × 2 */
+  /* Mobile : les quatre piliers visibles d’un coup, en grille 2 × 2 */
   @media (max-width: 720px) {
     .tabs {
       display: grid; grid-template-columns: 1fr 1fr; gap: 4px; border-radius: 18px;
@@ -38,19 +38,19 @@
   .tab:active { transform: scale(0.97); }
   .tab[aria-selected="true"] { color: #fff; }
   .tab .n { margin-right: 6px; font-weight: 500; font-variant-numeric: tabular-nums; }
-  #tab-1, #p-1 { --volet: var(--volet-1); --volet-ink: var(--volet-1-ink); }
-  #tab-2, #p-2 { --volet: var(--volet-2); --volet-ink: var(--volet-2-ink); }
-  #tab-3, #p-3 { --volet: var(--volet-3); --volet-ink: var(--volet-3-ink); }
-  #tab-4, #p-4 { --volet: var(--volet-4); --volet-ink: var(--volet-4-ink); }
+  #tab-1, #p-1 { --pilier: var(--pilier-1); --pilier-ink: var(--pilier-1-ink); }
+  #tab-2, #p-2 { --pilier: var(--pilier-2); --pilier-ink: var(--pilier-2-ink); }
+  #tab-3, #p-3 { --pilier: var(--pilier-3); --pilier-ink: var(--pilier-3-ink); }
+  #tab-4, #p-4 { --pilier: var(--pilier-4); --pilier-ink: var(--pilier-4-ink); }
   .tab::before {
     content: ""; display: inline-block; width: 9px; height: 9px; margin-right: 8px; vertical-align: 1px;
-    background: var(--volet); box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0);
+    background: var(--pilier); box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0);
     transition: box-shadow 200ms ease;
   }
   .tab[aria-selected="true"]::before { box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85); }
 
   .panels { position: relative; margin-top: 32px; }
-  /* Sans JavaScript, les onglets ne servent à rien : les quatre volets s’affichent à la suite. */
+  /* Sans JavaScript, les onglets ne servent à rien : les quatre piliers s’affichent à la suite. */
   html:not(.js) .tabs { display: none; }
   html:not(.js) .panel + .panel { margin-top: 64px; }
   .js .panel { display: none; }
@@ -92,7 +92,7 @@
   .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
   .chip { font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: var(--surface-2); color: var(--ink); }
 
-  .quote { margin: 4px 0 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--volet, var(--accent)); max-width: 680px; }
+  .quote { margin: 4px 0 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--pilier, var(--accent)); max-width: 680px; }
   .quote p { margin: 0; font-family: var(--serif); font-style: italic; font-size: clamp(16px, 1.9vw, 18px); line-height: 1.55; color: var(--ink-2); }
   /* Repliée sur deux lignes tant que le lecteur ne demande pas la suite */
   .quote.is-collapsible:not(.is-expanded) p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -114,7 +114,7 @@
   .engage { margin: 0 0 16px; max-width: 680px; color: var(--ink-2); }
   .engage strong { color: var(--ink); }
 
-  /* Contenu détaillé des volets */
+  /* Contenu détaillé des piliers */
   .card .item + .item { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
   .card .item p { margin: 0; color: var(--ink-2); font-size: 15.5px; line-height: 1.5; }
   .kpis { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
