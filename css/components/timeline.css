@@ -9,7 +9,7 @@
   .event:last-child { padding-bottom: 0; }
   .event::before {
     content: ""; position: absolute; left: -36px; top: 8px; width: 17px; height: 17px;
-    background: var(--bg-alt); border: 3px solid var(--line);
+    background: var(--bg); border: 3px solid var(--line);
     transition: border-color 300ms ease, background-color 300ms ease, transform 400ms var(--ease-out);
   }
   .event.lit::before { border-color: var(--udem-bleu); background: var(--udem-jaune); transform: rotate(45deg); }

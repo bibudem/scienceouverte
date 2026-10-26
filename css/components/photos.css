@@ -5,7 +5,7 @@
   picture, picture img { display: block; }
   figure { margin: 0; }
 
-  /* Photos de fond (haut de page, En chiffres, Quatre volets) :
+  /* Photos de fond (haut de page, Quatre volets) :
      même traitement sur ordinateur et sur mobile ; seules les dimensions changent. */
 
   /* Haut de page : duotone bleu UdeM, fondu dans le fond du côté gauche.
@@ -31,11 +31,16 @@
     .hero-photo { width: 78vw; }
   }
 
-  /* En chiffres : photo en noir et blanc ancrée en haut à gauche, fondue vers la droite
-     et vers les chiffres ; le titre se place à côté (ordinateur) ou dessous (mobile). */
-  #chiffres { position: relative; isolation: isolate; overflow: hidden; }
-  .stats-head { display: grid; gap: 28px; }
-  .stats-photo {
+  /* Quatre volets : photo en noir et blanc ancrée en haut à gauche, fondue vers la droite
+     et vers le bas ; le titre se place à côté (ordinateur) ou dessous (mobile). */
+  #volets { position: relative; isolation: isolate; overflow: hidden; }
+  .photo-head { display: grid; gap: 28px; }
+  .photo-head h2 em { white-space: nowrap; } /* « chaque étape. » ne se coupe pas */
+  /* Texte posé sur la photo (WCAG 1.4.3) : le grand titre garde un halo de la couleur du fond ;
+     le petit titre, trop fin pour un halo, reçoit une pastille de cette même couleur. */
+  .photo-head h2 { text-shadow: 0 0 6px var(--bg-alt), 0 0 14px var(--bg-alt), 0 0 24px var(--bg-alt); }
+  .photo-head .kicker { background: var(--bg-alt); padding: 5px 12px 5px 10px; margin-left: -10px; border-radius: 999px; }
+  .photo-left {
     /* Jusqu’à 260 px sous la colonne du titre, quelle que soit la largeur de l’écran */
     position: absolute; z-index: -1; top: 0; left: 0; width: calc(50vw + 260px); height: min(80vh, 760px);
     overflow: hidden;
@@ -45,12 +50,12 @@
     -webkit-mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,.06) 12%, rgba(0,0,0,.22) 26%, rgba(0,0,0,.5) 42%, rgba(0,0,0,.8) 58%, #000 75%);
             mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,.06) 12%, rgba(0,0,0,.22) 26%, rgba(0,0,0,.5) 42%, rgba(0,0,0,.8) 58%, #000 75%);
   }
-  .stats-photo picture {
+  .photo-left picture {
     width: 100%; height: 100%;
     -webkit-mask-image: linear-gradient(180deg, #000 30%, rgba(0,0,0,.8) 48%, rgba(0,0,0,.5) 64%, rgba(0,0,0,.2) 80%, rgba(0,0,0,.05) 92%, transparent 100%);
             mask-image: linear-gradient(180deg, #000 30%, rgba(0,0,0,.8) 48%, rgba(0,0,0,.5) 64%, rgba(0,0,0,.2) 80%, rgba(0,0,0,.05) 92%, transparent 100%);
   }
-  .stats-photo img {
+  .photo-left img {
     width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%;
     filter: grayscale(1) contrast(1.08) brightness(1.05);
     opacity: 0.9; /* noir et blanc, posé directement sur le fond de la section */
@@ -60,44 +65,18 @@
     .stats-head > div { grid-column: 2; }
   }
   @media (max-width: 899px) {
-    .stats-photo { width: 88vw; height: 340px; }
-    .stats-head { padding-top: 190px; }
+    .photo-left { width: 88vw; height: 340px; }
+    .photo-head { padding-top: 190px; }
   }
   /* Dévoilement depuis la gauche, en miroir du haut de page */
-  .js .stats-photo.photo-reveal picture,
-  .js .stats-photo.photo-reveal.in picture { clip-path: none; }
-  .js .stats-photo.photo-reveal img { clip-path: inset(0 100% 0 0); scale: 1.06; transform-origin: left center; }
-  .js .stats-photo.photo-reveal.in img {
+  .js .photo-left.photo-reveal picture,
+  .js .photo-left.photo-reveal.in picture { clip-path: none; }
+  .js .photo-left.photo-reveal img { clip-path: inset(0 100% 0 0); scale: 1.06; transform-origin: left center; }
+  .js .photo-left.photo-reveal.in img {
     clip-path: inset(0); scale: 1;
     transition: clip-path 1400ms var(--ease-in-out) 100ms, scale 2200ms var(--ease-out) 100ms;
   }
 
-  /* Quatre volets : photo en noir et blanc sur toute la largeur du bas de la section,
-     fondue vers le haut et dévoilée de bas en haut. */
-  #volets { position: relative; isolation: isolate; overflow: hidden; padding-bottom: clamp(110px, 15vh, 170px); }
-  .volets-photo {
-    position: absolute; z-index: -1; left: 0; right: 0; bottom: 0; width: 100%; height: min(46vh, 420px);
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(0deg, #000 40%, transparent 100%);
-            mask-image: linear-gradient(0deg, #000 40%, transparent 100%);
-  }
-  .volets-photo picture { width: 100%; height: 100%; }
-  .volets-photo img {
-    width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%;
-    filter: grayscale(1) contrast(1.08) brightness(1.05);
-    opacity: 0.9;
-  }
-  @media (max-width: 899px) {
-    .volets-photo { height: 300px; }
-    .volets-photo img { object-position: 30% 55%; }
-  }
-  .js .volets-photo.photo-reveal picture,
-  .js .volets-photo.photo-reveal.in picture { clip-path: none; }
-  .js .volets-photo.photo-reveal img { clip-path: inset(100% 0 0 0); scale: 1.06; transform-origin: center bottom; }
-  .js .volets-photo.photo-reveal.in img {
-    clip-path: inset(0); scale: 1;
-    transition: clip-path 1400ms var(--ease-in-out) 100ms, scale 2200ms var(--ease-out) 100ms;
-  }
 
   /* Passer à l’action : photo à droite, sous le carré orange et le logo */
   .cta-photo { position: relative; z-index: -2; margin: calc(-1 * var(--cta-pad)) calc(-1 * var(--cta-pad)) 32px; aspect-ratio: 16 / 10; overflow: hidden; }

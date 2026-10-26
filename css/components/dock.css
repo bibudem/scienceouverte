@@ -6,7 +6,7 @@
   @media (max-width: 720px) {
     .dock {
       position: fixed; z-index: 45; left: 12px; right: 12px; bottom: calc(10px + env(safe-area-inset-bottom));
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 6px;
+      display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; padding: 6px;
       border-radius: 18px; border: 1px solid var(--line);
       background: color-mix(in srgb, var(--bg) 80%, transparent);
       -webkit-backdrop-filter: saturate(1.6) blur(18px); backdrop-filter: saturate(1.6) blur(18px);

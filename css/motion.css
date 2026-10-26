@@ -20,6 +20,9 @@
     @keyframes fadeOnly { from { opacity: 0; } }
     .tab-indicator { transition: none; }
     .timeline-fill { transform: scaleY(1) !important; }
+    .js .manifeste { height: auto; }
+    .js .manifeste-sticky { position: static; height: auto; min-height: 100svh; padding: clamp(72px, 12vw, 136px) 0; }
+    .manifeste .w, .manifeste-actions { opacity: 1; }
   }
 
   /* Bouton pause (WCAG 2.2.2) : dans la dernière couche pour l’emporter sur la déclaration

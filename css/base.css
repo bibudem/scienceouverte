@@ -13,7 +13,8 @@
     color: var(--ink);
     font: 400 17px/1.6 var(--sans);
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    /* clip et non hidden : hidden ferait de body un conteneur de défilement et casserait position: sticky. */
+    overflow-x: clip;
   }
   a { color: inherit; }
   a, button { touch-action: manipulation; }

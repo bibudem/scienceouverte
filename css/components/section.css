@@ -1,7 +1,7 @@
 /* ---------- Sections ---------- */
 @layer components {
   section { padding: clamp(72px, 12vw, 136px) 0; }
-  #chiffres, #chronologie { background: var(--bg-alt); }
+  #volets { background: var(--bg-alt); }
   .kicker { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: var(--accent); margin: 0 0 18px; }
   .kicker::before { content: ""; width: 10px; height: 10px; background: currentColor; }
   /* Titres suivants : Lora Regular */

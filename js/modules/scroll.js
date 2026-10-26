@@ -10,6 +10,7 @@ export function initScrollEffects() {
   const fill = $('.timeline-fill');
   const events = $$('.event');
   const dock = $('.dock');
+  const manifeste = $('.manifeste');
   const mobile = matchMedia('(max-width: 720px)');
   // Sur mobile, la barre de sections reste toujours affichée.
   requestAnimationFrame(() => dock?.classList.add('visible'));
@@ -34,6 +35,16 @@ export function initScrollEffects() {
       fill.style.transform = `scaleY(${Math.max(0, Math.min(1, (mark - box.top) / box.height))})`;
     }
     for (const ev of events) ev.classList.toggle('lit', ev.getBoundingClientRect().top + 14 < mark);
+
+    // Manifeste : les mots s’allument dès que la section atteint le milieu de l’écran,
+    // et sont tous allumés aux trois quarts de la course, pour laisser le temps de lire.
+    if (manifeste) {
+      const { top, height } = manifeste.getBoundingClientRect();
+      const start = innerHeight * 0.5;
+      const end = -(height - innerHeight) * 0.75;
+      const p = end < start ? (start - top) / (start - end) : 1;
+      manifeste.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(3));
+    }
 
     const current = sections.findLast((s) => s.getBoundingClientRect().top < innerHeight * 0.4);
     for (const a of links) {

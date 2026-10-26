@@ -44,12 +44,6 @@ export async function loadData() {
       continue;
     }
 
-    if ('count' in el.dataset) {
-      // Compteur animé (section « En chiffres ») : counters.js s’occupe de l’affichage.
-      el.dataset.count = String(value);
-      el.dataset.decimals = String(typeof value === 'number' ? decimalsOf(value) : 0);
-    } else {
-      el.textContent = display(value, el.dataset.suffix);
-    }
+    el.textContent = display(value, el.dataset.suffix);
   }
 }
