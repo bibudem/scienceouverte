@@ -5,11 +5,11 @@
     "libelle": "novembre 2025"
   },
   "chiffres": {
-    "papyrus_telechargements_2024": 6197193,
+    "papyrus_telechargements": 6197193,
     "papyrus_documents": 41607,
     "papyrus_doi_actifs": 32259,
     "papyrus_doi_attribues": 32359,
-    "papyrus_articles_libre_acces_2025": 224,
+    "papyrus_articles_libre_acces": 224,
     "papyrus_theses_memoires": 32356,
     "borealis_jeux_de_donnees": 369,
     "budget_libre_acces_pourcentage": 2.5,
