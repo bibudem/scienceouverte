@@ -46,9 +46,10 @@
     overflow: hidden;
     /* Deux fondus sur deux éléments imbriqués, plutôt qu’un masque composé :
        la composition de masques n’est pas rendue de façon fiable sur grand écran. */
-    /* Fondu long et adouci (courbe en S) : il commence tôt et s’éteint sans bord visible */
-    -webkit-mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,.06) 12%, rgba(0,0,0,.22) 26%, rgba(0,0,0,.5) 42%, rgba(0,0,0,.8) 58%, #000 75%);
-            mask-image: linear-gradient(270deg, transparent 0%, rgba(0,0,0,.06) 12%, rgba(0,0,0,.22) 26%, rgba(0,0,0,.5) 42%, rgba(0,0,0,.8) 58%, #000 75%);
+    /* Fondu long et adouci (courbe en S) : il commence tôt et s’éteint sans bord visible.
+       Les 7 % de droite restent transparents : la photo s’y termine par un pilier sombre qui dessinait un trait. */
+    -webkit-mask-image: linear-gradient(270deg, transparent 0%, transparent 7%, rgba(0,0,0,.04) 16%, rgba(0,0,0,.16) 28%, rgba(0,0,0,.42) 42%, rgba(0,0,0,.74) 55%, #000 68%);
+            mask-image: linear-gradient(270deg, transparent 0%, transparent 7%, rgba(0,0,0,.04) 16%, rgba(0,0,0,.16) 28%, rgba(0,0,0,.42) 42%, rgba(0,0,0,.74) 55%, #000 68%);
   }
   .photo-left picture {
     width: 100%; height: 100%;
@@ -61,8 +62,9 @@
     opacity: 0.9; /* noir et blanc, posé directement sur le fond de la section */
   }
   @media (min-width: 900px) {
-    .stats-head { grid-template-columns: 1fr 1fr; }
-    .stats-head > div { grid-column: 2; }
+    /* Titre décalé vers la gauche, posé sur la partie déjà fondue de la photo */
+    .photo-head { grid-template-columns: 5fr 7fr; }
+    .photo-head > div { grid-column: 2; }
   }
   @media (max-width: 899px) {
     .photo-left { width: 88vw; height: 340px; }
