@@ -16,7 +16,7 @@ function createTile(card, index) {
 
   const title = document.createElement('span');
   title.className = 'tile-title';
-  title.textContent = card.querySelector('h4').textContent;
+  title.textContent = card.querySelector('.card-title').textContent;
   tile.append(title);
 
   if (kpi) {

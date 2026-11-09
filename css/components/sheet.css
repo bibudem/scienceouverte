@@ -35,10 +35,10 @@
   .sheet-title { display: flex; align-items: center; gap: 14px; }
   .sheet-title .icon { width: 48px; height: 48px; display: grid; place-items: center; flex: none; background: var(--pilier, var(--udem-bleu)); color: var(--pilier-ink, #fff); border-radius: 0 14px 0 14px; }
   .sheet-title .icon svg { width: 24px; height: 24px; stroke-width: 2.4; }
-  .sheet-title h4 { margin: 0; font: 400 clamp(24px, 3vw, 30px)/1.15 var(--serif); letter-spacing: -0.01em; }
+  .sheet-title h2 { margin: 0; max-width: none; font: 400 clamp(24px, 3vw, 30px)/1.15 var(--serif); letter-spacing: -0.01em; }
   .sheet-body { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 22px 24px 28px; -webkit-overflow-scrolling: touch; }
   .sheet-body .card { border: 0; padding: 0; background: transparent; transform: none !important; animation: none !important; }
-  .sheet-body .card .icon, .sheet-body .card h4 { display: none; }
+  .sheet-body .card .icon, .sheet-body .card-title { display: none; }
   .sheet-body .card .item p { font-size: 16px; }
   .sheet-foot {
     flex: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
@@ -57,7 +57,6 @@
   .sheet-nav small { font-size: 12px; font-weight: 600; color: var(--accent); }
   .sheet-nav span { font-size: 14px; font-weight: 600; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   @media (hover: hover) and (pointer: fine) { .sheet-nav:not(:disabled):hover { background: var(--accent-soft); } }
-  .sheet-pos { font-size: 12px; font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 
   /* Mobile : feuille qui monte du bas, qu'on peut glisser pour fermer */
   @media (max-width: 720px) {

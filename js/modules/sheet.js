@@ -41,7 +41,7 @@ export function createSheet() {
     sheet.style.setProperty('--pilier-ink', style.getPropertyValue('--pilier-ink'));
     kicker.textContent = entry.pilier;
     icon.innerHTML = entry.card.querySelector('.icon').innerHTML;
-    title.textContent = entry.card.querySelector('h4').textContent;
+    title.textContent = entry.card.querySelector('.card-title').textContent;
     body.replaceChildren(entry.card.cloneNode(true));
     body.scrollTop = 0;
     const prev = group[index - 1];

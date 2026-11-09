@@ -7,7 +7,7 @@ Page unique (one-pager) présentant l’engagement des bibliothèques de l’Uni
 Les modules JavaScript (`type="module"`) ne se chargent pas en ouvrant le fichier par double-clic : il faut un petit serveur local.
 
 ```sh
-cd science-ouverte          
+cd scienceouverte
 python3 -m http.server 8765
 ```
 

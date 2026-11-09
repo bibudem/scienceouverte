@@ -6,7 +6,7 @@ const reducedMotionQuery = matchMedia('(prefers-reduced-motion: reduce)');
 export const prefersReducedMotion = () => reducedMotionQuery.matches;
 
 export const EASE_OUT = 'cubic-bezier(0.23, 1, 0.32, 1)';
-export const EASE_DRAWER = 'cubic-bezier(0.32, 0.72, 0, 1)';
+const EASE_DRAWER = 'cubic-bezier(0.32, 0.72, 0, 1)';
 
 /**
  * Ressort physique échantillonné en courbe CSS linear().

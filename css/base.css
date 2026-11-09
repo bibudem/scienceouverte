@@ -18,6 +18,6 @@
   }
   a { color: inherit; }
   a, button { touch-action: manipulation; }
-  .btn, .chip, .nav a { user-select: none; -webkit-user-select: none; }
+  .btn, .nav a { user-select: none; -webkit-user-select: none; }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 }
